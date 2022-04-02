@@ -1,0 +1,53 @@
+<div class="container device">
+<div class="device_frame">
+     <table>
+    <tr>
+     <td>
+     <h5 class="title is-5">予約内容確認</h3>
+     </td>
+    </tr>
+    <tr>
+     <td>
+     <h5 class="title is-5">¥<%= @resavation.room.fee %>/日</h3>
+     </td>
+    </tr>
+    <%= form_with(model: @resavation, method: :post, local: true) do |f| %>
+     <%= f.hidden_field :room_id, value: @room.id %>
+    <tr>
+     <td>開始日<br>
+     <%= @resavation.start_at %>
+     <%= f.hidden_field :start_at %>
+     </td>
+    </tr>
+    <tr>
+     <td>終了日<br>
+      <%= @resavation.end_at %>
+      <%= f.hidden_field :end_at %>
+      </td>
+     </tr>
+     <tr>
+     <td>使用日数:<%= @resavation.total_day %>日</td>
+    </tr>
+    <tr>
+     <td>
+     人数:<%= @resavation.people_number %>
+     <%= f.hidden_field :people_number %>
+     </td>
+    </tr>
+    <tr>
+     <td>合計金額<br>
+     <%= @resavation.total_price %>
+    </td>
+    <tr>
+     <td>上記内容でよろしければ「予約を確定」を押してください</td>
+    </tr>
+    <tr>
+     <td><%= f.submit "予約を確定", class: "button is-info" %></td>
+    </tr>
+     <tr class="confirm_tr">
+     <td class="confirm_btn"><%= link_to "ルーム詳細に戻る" , :back, class: "button is-dark" %></td>
+    </tr>
+    <% end %>
+  </table>
+  </div>
+  </div>

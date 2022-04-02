@@ -1,0 +1,30 @@
+<div class="container-fiuld">
+   <h4 class="title is-4">予約済みルーム一覧</h3>
+    <table class="table is-striped">
+      <thead>
+        <tr align="center">
+          <th>ルーム画像</th>
+          <th>ルーム名</th>
+          <th>ルーム紹介</th>
+          <th>合計料金</th>
+          <th>開始日</th>
+          <th>終了日</th>
+          <th>予約確定日時</th>
+        </tr>
+      </thead>
+ 
+      <tbody>
+        <% @resavations.each do |resavation| %>
+          <tr>
+            <td><%= image_tag resavation.room.room_image_id.url, size:'200x200' %></td>
+            <td><%= link_to resavation.room.roomname,room_path(resavation.room.id) %></td>
+            <td><%= resavation.room.roomintroduction %></td>
+            <td>¥<%= resavation.total_price %></td>
+            <td><%= resavation.start_at %></td>
+            <td><%= resavation.end_at %></td>
+            <td><%= resavation.created_at %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+</div>

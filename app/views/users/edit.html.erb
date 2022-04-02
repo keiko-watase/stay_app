@@ -1,0 +1,38 @@
+
+<div class="container device">
+  <ul class="side-link">
+    <div><%= link_to "アカウント", users_path %></div>
+    <div><%= link_to "プロフィール", edit_user_path(@user) %><div>
+  </ul>
+
+  <div class="device_frame">
+    <h5>プロフィール</h5>
+    <%= form_for(@user) do |f| %>
+    
+    <table>
+      <% if @user.profile_image_id? %>
+        <%= image_tag @user.profile_image_id.url %>
+      <% else %>
+         <%= image_tag "/assets/no_image.png", :size => '100x100' %>
+      <% end %>
+
+      <tr>
+        <th>プロフィール画像<%= f.label :required, "必須", class: "required" %></th>
+        <td><%= f.file_field :profile_image_id, class: "input" %></td>
+      </tr>
+
+      <tr>
+        <th>ユーザー名<%= f.label :required, "必須", class: "required" %></th>
+        <td><%= f.text_field :username, class: "input" %></td>
+      </tr>
+
+      <tr>
+        <th>プロフィール<%= f.label :required, "必須", class: "required" %></th>
+        <td><%= f.text_area :profile, class: "textarea" %></td>
+      </tr>
+      </table>
+
+  <%= f.submit "更新", class: "button is-info" %>
+  
+
+<% end %>

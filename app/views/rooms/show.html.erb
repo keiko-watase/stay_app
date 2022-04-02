@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="columns is-centered">
+
+      <div class="column is-7">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-4by3">
+            <%= form_for(@room) do |f| %>
+                <% if @room.room_image_id? %>
+                   <%= image_tag @room.room_image_id.url %>
+                <% else %>
+                   <%= image_tag "/assets/no_image.png", :size => '50x30' %>
+                <% end %>
+            <% end %>
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="media">
+              <div class="media-content">
+                <p class="title is-4"><%= @room.roomname %></p>
+                <p><%= @room.adress %></p>
+                <p><%= simple_format @room.roomintroduction %></p>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+      <div class="column is-5">
+      <%= form_with url: resavations_confirm_path, method: :post do |f| %>
+      <%= f.hidden_field :room_id, value: @room.id %>
+          <div class="device_frame">
+            <table>
+            <tr>
+             ¥<%= @room.fee %>/日
+            <tr>
+            <tr>
+              <td>
+              <%= f.label :start_at ,"開始日" %><br>
+              <%= f.datetime_field :start_at, class: "form-control datetimepicker-input", id: "start_time", data: {toggle: "datetimepicker", target: "#start_time"} %>
+              </td>
+            </tr>
+            <tr>>
+              <td>
+              <%= f.label :end ,"終了日" %><br>
+              <%= f.datetime_field :end_at, class: "form-control datetimepicker-input", id: "end_time", data: {toggle: "datetimepicker", target: "#end_time"} %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+              <%= f.label :people ,"人数" %><br>
+              <%= f.number_field :people_number, class: "form-control datetimepicker-input", id: "people", data: {toggle: "datetimepicker", target: "#people"} %>
+            </td>
+            </tr>
+          </table>
+            <%=  f.submit "予約する", class:  "button is-info" %>
+          <% end %>
+          </div>
+      </div>
+
+    </div>
+</div>

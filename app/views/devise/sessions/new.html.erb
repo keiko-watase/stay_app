@@ -1,0 +1,27 @@
+<div class="container device">
+  <div class="device_frame">
+    <h1>ログイン</h1>
+    
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  
+    <table>
+      <tr>
+        <th><%= f.label :email, "必須", class: "required" %></th>
+        <td><%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "メールアドレス", class: "input" %>
+      </tr>
+      <tr>
+        <th><%= f.label :email, "必須", class: "required" %></th>
+        <td><%= f.password_field :password, autocomplete: "current-password", :placeholder => "パスワード", class: "input" %>
+      </tr>
+    </table>
+
+    <div class="actions">
+      <ul>
+        <li><%= f.submit "ログイン", class: "button is-info" %></li>
+        <li><%= link_to "新しいアカウントを作成", "/users/sign_up" %></li>
+      </ul>
+    </div>
+    <% end %>
+  </div>
+</div>
+

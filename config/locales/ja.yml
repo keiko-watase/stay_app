@@ -1,0 +1,19 @@
+ja:
+ activerecord:
+  models:
+   user: ユーザー
+  attributes:
+   user:
+    username: ユーザー名
+    email: メールアドレス
+    encrypted_password: パスワード
+
+  models:
+   room:
+  attributes:
+   room:
+    roomname: ルーム名
+    roomintroduction: ルーム紹介
+    fee: 料金
+    adress: 住所
+    room_image_id: ルーム画像

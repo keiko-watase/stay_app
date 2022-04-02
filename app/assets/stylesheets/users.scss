@@ -1,0 +1,78 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  height: 500px;
+}
+
+.device {
+  padding-top: 36px;
+  font-size: 16px;
+}
+
+.device_frame {
+  max-width: 600px;
+  text-align: center;
+  padding: 24px;
+  margin: 0px auto;
+  background: white;
+  border-radius: 4px;
+  box-shadow: rgb(21, 27, 38 / 15%) 0px 1px 3px 0px;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.required {
+  color: white;
+  background: #ff0000a8;
+  font-size: 12px;
+  border-radius: 5px;
+  padding: 4px;
+  margin: 0 5px;
+}
+
+.input{
+   padding-bottom: 10px;
+   margin-bottom: 10px;
+}
+
+li {
+  list-style: none;
+}
+
+.user-icon  {
+  width: 65px;
+  height: 65px;
+  object-fit: cover;
+  border-radius: 50px;
+}
+
+.account-edit {
+  text-align: center;
+  padding-top: 20px;
+  line-height: 2.5;
+}
+
+.edit-btn {
+  background-color: #4a90e2;
+  color: #fff;
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 5px;
+  width: 50px;
+}
+
+.back-btn {
+  background-color: #6c757d;
+  color: #fff;
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 5px;
+}
