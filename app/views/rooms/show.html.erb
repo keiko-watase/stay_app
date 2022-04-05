@@ -54,7 +54,11 @@
             </td>
             </tr>
           </table>
-            <%=  f.submit "予約する", class:  "button is-info" %>
+            <% if user_signed_in? %>
+              <%=  f.submit "予約する", class:  "button is-info" %>
+            <% else %>
+              <%=  link_to "ログイン", new_user_session_path, class: "button is-info" %>
+            <% end %>
           <% end %>
           </div>
       </div>

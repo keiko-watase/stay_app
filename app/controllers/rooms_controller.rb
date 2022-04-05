@@ -6,7 +6,6 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
-    @user = User.find_by(id: current_user.id)
     @resavation = Resavation.new
     @resavation.room_id = @room.id
   end
