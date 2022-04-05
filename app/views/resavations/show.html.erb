@@ -1,0 +1,20 @@
+<div class="container device">
+      <table class="table">
+        <tr>
+          <th>予約した部屋</th>
+          <td><%= @resavation.room.roomname %></td>
+        </tr>
+         <tr>
+          <th>開始日</th>
+          <td><%= @resavation.start_at.strftime('%Y年%m月%d日') %></td>
+        </tr>
+        <tr>
+          <th>終了日</th>
+          <td><%= @resavation.end_at.strftime('%Y年%m月%d日') %></td>
+        </tr>
+        <tr>
+          <th>価格</th>
+          <td><%= @resavation.total_price %>円</td>
+        </tr>
+     </table>
+</div>

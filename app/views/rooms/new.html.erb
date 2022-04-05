@@ -1,0 +1,45 @@
+<div class="container device">
+  
+  <ul class="side-link">
+    <div><%= link_to "基本情報", new_room_path %></div>
+  </ul>
+
+  <div class="device_frame">
+    <h5>ルーム情報登録</h5>
+
+    <%= render "shared/error", obj: @room %>
+    <%= form_for @room do |f| %>
+
+    <table>
+      <tr>
+        <th>ルーム名<%= f.label :required, "必須", class: "required" %></th>
+        <td><%= f.text_field :roomname, class: "input" %></td>
+      </tr>
+
+      <tr>
+        <th>ルーム紹介<%= f.label :required, "必須", class: "required" %></th>
+        <td><%= f.text_area :roomintroduction, class: "textarea" %></td>
+      </tr>
+
+      <tr>
+        <th>料金<%= f.label :required, "必須", class: "required" %></th>
+        <td><<%= f.text_field :fee, class: "input" %></td>
+      </tr>
+
+      <tr>
+        <th>住所<%= f.label :required, "必須", class: "required" %></th>
+        <td><%= f.text_field :adress, class: "input" %></td>
+      </tr>
+
+      <tr>
+        <th>ルーム画像<%= f.label :required, "必須", class: "required" %></th>
+        <td><%= f.file_field :room_image_id, class: "input" %></td>
+      </tr>
+    </table>
+    
+    <%= f.submit '登録', class: "button is-info" %>
+
+  </div>
+</div>
+
+<% end %>

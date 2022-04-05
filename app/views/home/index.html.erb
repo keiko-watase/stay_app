@@ -1,0 +1,50 @@
+<div class="top-wrapper">
+    <div class="form-fream">
+      <div class="form-area search-box">
+        <h5 class="title is-5">Potepan Shareでまだ体験したことのない旅をしよう</h5>
+        <div class="search-area">
+          <p>エリア</p>
+          <%= form_with url:search_rooms_path, local: true, method: :get do |f| %>
+            <%= f.text_field :area, value: @area, placeholder: "東京" %><br>
+            <%= submit_tag "探す", class:"button is-info"%>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+  <div class="container">
+    <div class="area-index-wrapper">
+      <h4 class="title is-4">おすすめのエリア</h4>
+      <div class="row">
+        <div class="panel-item">
+          <%= link_to controller: "rooms", action: "search", q: { adress: '東京'} do %>
+          <img class="panel-image" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_tokyo.jpg" alt="tokyo">
+          </a><br>
+          <p class="has-text-weight-semibold">東京</p>
+          <% end %>
+        </div>
+        <div class="panel-item">
+          <%= link_to controller: "rooms", action: "search", q: { adress: '大阪'} do %>
+          <img class="panel-image" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_osaka.jpg" alt="osaka">
+          </a><br>
+          <p class="has-text-weight-semibold">大阪</p>
+          <% end %>
+        </div>
+        <div class="panel-item">
+          <%= link_to controller: "rooms", action: "search", q: { adress: '京都'} do %>
+          <img class="panel-image" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_kyoto.jpg" alt="kyoto">
+          </a><br>
+          <p class="has-text-weight-semibold">京都</p> 
+          <% end %>
+        </div>
+        <div class="panel-item">
+          <%= link_to controller: "rooms", action: "search", q: { adress: '札幌'} do %>
+          <img class="panel-image" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_sapporo.jpg" alt="sapporo">
+          </a><br>
+          <p class="has-text-weight-semibold">札幌</p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="container">
+  <h4 class="title is-4">検索結果：<%= @rooms.count%> 件</h4>
+  <% @rooms.each do |room| %>
+    <div class="column is-one-quarter">
+      <div class="card">
+        <div class="card-image">
+          <%= image_tag room.room_image_id.url, size:'300x300' %>        
+        </div>
+        <div class="card-content">
+          <p class="is-size-4"><%= link_to room.roomname,room_path(room)%>
+          <p class="is-size-5"><%= room.adress %></p>
+          <p class="has-text-right">¥<%= room.fee %></p>
+        </div>
+      </div>
+    </div>
+  <% end %> 
+</div>

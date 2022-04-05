@@ -9,8 +9,69 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  
+  
 
   <body>
+    <% if flash[:notice] %>
+      <div class="notification">
+        <p class="notice"><%= notice %></p>
+      </div>
+    <% end %>
+
+    <% if flash[:alert] %>
+      <div class="notification is-danger">
+        <p class="alert"><%= alert %></p>
+      </div>
+    <% end %>
+
+    <header>
+    <div class="header-left">
+      <%= link_to image_tag("logo.png", class:"header_logo"), root_path %>
+      <div class="search_area">
+        <%= form_with url:search_rooms_path, local: true, method: :get do |f| %>
+        <%= f.text_field :area, value: @area, placeholder: "エリア" %> 
+        <% end %> 
+      </div>
+      <div class="search_key">
+        <%= form_with url:search_rooms_path, local: true, method: :get do |f| %>
+        <%= f.text_field :key, value: @key, placeholder: "キーワード" %> 
+      <% end %> 
+      </div>
+    </div>
+
+    <div class="header-right">
+      <% if user_signed_in? %>
+        <div class="hidden_box">
+          <label for="label1">メニュー</label>
+          <input type="checkbox" id="label1"/>
+          <ul class="hidden_show" >
+            <li><%= link_to "ルーム登録", new_room_path %></li>
+            <li><%= link_to "予約済みルーム一覧", resavations_path %></li>
+            <li><%= link_to "登録済みルーム一覧", rooms_path %></li>
+            <li><%= link_to "設定", users_path, id: current_user%></li>
+            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+          </ul>
+        </div>
+
+      <% else %>
+        <%= link_to "ログイン", new_user_session_path, class: "button is-info" %>
+        <%= link_to "新規登録", new_user_registration_path, class: "button is-light" %>
+      <% end %>
+    </div>
+
+    
+
+    </header>
+    
+    <main>
+
     <%= yield %>
+
+    </main>
+
+    <footer>
+    <p>© 2020 POTEPAN.INC.</p>
+    </footer>
   </body>
 </html>
